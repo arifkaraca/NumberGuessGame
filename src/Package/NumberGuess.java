@@ -11,7 +11,7 @@ public class NumberGuess {
 		Random rand = new Random();
 		Scanner scan = new Scanner(System.in);
 		int num = rand.nextInt(100);
-		//System.out.println(num);
+		System.out.println(num);
 		boolean gameSituation = false, mistake = false;
 		int[] gues = new int[5];
 		System.out.println("Sayı Tahmin Oyununa Hoşgeldiniz !");
@@ -35,7 +35,18 @@ public class NumberGuess {
 				gameSituation = true;
 				break;
 			}else {
+				if((Math.abs(num - guess) > 0) && (Math.abs(num - guess) <5)) {
+				    System.out.println("ÇOK YAKLAŞTINN");
+				}else if((Math.abs(num - guess) >= 5) && (Math.abs(num - guess) < 10)) {
+					System.out.println("Yaklaştın Sayılırr.");
+				}else if((Math.abs(num - guess)>= 10) && (Math.abs(num - guess) < 25)) {
+					System.out.println("Uzaklardasınn");
+				}else if((Math.abs(num - guess)>= 25) && (Math.abs(num - guess) < 50)) {
+					System.out.println("Çok Uzaktasın");
+					
+				}
 				System.out.println("Yanlış Tahmin !! TEKRAR DENEYİNİZ. Kalan Can : " + --heart);
+				
 			}
 		}
 		if(gameSituation) {
